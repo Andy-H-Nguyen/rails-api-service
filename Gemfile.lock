@@ -1,3 +1,9 @@
+PATH
+  remote: StockApi
+  specs:
+    stock_api (0.1.0)
+      rails (>= 7.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -217,6 +223,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  stock_api!
   turbo-rails
   tzinfo-data
   web-console
