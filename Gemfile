@@ -71,4 +71,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'stock_api', path: 'StockApi'
+gem 'portfolio-api', path: 'portfolio-api'
