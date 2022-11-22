@@ -16,5 +16,11 @@ module Portfolio::Api
         Stock.create!(ticker: "ABC")
       end
     end
+
+    test "Duplicate names are not allowed" do
+      assert_raises(ActiveRecord::RecordInvalid, "A stock with that name already exists") do
+        Stock.create!(name: "GOOGLE")
+      end
+    end
   end
 end

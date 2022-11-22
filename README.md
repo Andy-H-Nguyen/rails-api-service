@@ -22,7 +22,7 @@ Run tests using
 
 ### Assumptions
 - There is only one portfolio. Multiple portfolios is not supported.
-- No duplicate tickers, there can be companies with the same name as some companies decide to do business under a generic name.
+- No duplicate tickers, or stock names are allowed.
 - The date that the trade model is created is the trade date.
 - The formula used for average of all buys is `average_of_all_buys = total_purchase_price/total_shares`. No sell orders were included. This means that we have `RELIANCE: 150 @ 875` instead of `RELIANCE: 150 @ 875.5`
 
@@ -218,4 +218,4 @@ Sample response
 - code quality tools like codecov, packwerk, rubocop
 - use GraphQL instead of REST, for QOL features like introspection queries, and stronger schemas
 - multiple portfolios
-
+- seeding database with real stocks
