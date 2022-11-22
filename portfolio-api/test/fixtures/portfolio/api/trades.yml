@@ -9,6 +9,7 @@ google:
   portfolio_id: 11
   stock_id: 22
   price: 12.24
+  quantity: 1
   order_type: "buy"
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
@@ -28,6 +29,7 @@ reliance_2:
   portfolio_id: 11
   stock_id: 333
   price: 1000
+  quantity: 50
   order_type: "sell"
   created_at: <%= "2015-10-05".to_date %>
   updated_at: <%= "2015-10-05".to_date %>
@@ -37,6 +39,27 @@ reliance_3:
   portfolio_id: 11
   stock_id: 333
   price: 850
+  quantity: 100
   order_type: "buy"
   created_at: <%= "2015-10-06".to_date %>
   updated_at: <%= "2015-10-06".to_date %>
+
+hdfcbank_1: 
+  id: 4444
+  portfolio_id: 11
+  stock_id: 444
+  price: 1000
+  quantity: 200
+  order_type: "buy"
+  created_at: <%= "2015-11-05".to_date %>
+  updated_at: <%= "2015-11-05".to_date %>
+
+hdfcbank_2: 
+  id: 5555
+  portfolio_id: 11
+  stock_id: 444
+  price: 800
+  quantity: 100
+  order_type: "sell"
+  created_at: <%= "2015-12-07".to_date %>
+  updated_at: <%= "2015-12-07".to_date %>

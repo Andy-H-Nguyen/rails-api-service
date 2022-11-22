@@ -6,6 +6,7 @@ module Portfolio::Api
       assert_equal 22, portfolio_api_stocks(:google).id
       assert_equal "GOOGLE", portfolio_api_stocks(:google).name
       assert_equal "ABC", portfolio_api_stocks(:google).ticker
+      assert_equal 1004, portfolio_api_stocks(:google).current_price
       assert_equal Time.at(1).to_datetime, portfolio_api_stocks(:google).created_at
       assert_equal Time.at(1).to_datetime, portfolio_api_stocks(:google).updated_at
     end

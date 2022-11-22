@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_020543) do
   create_table "portfolio_api_stocks", force: :cascade do |t|
     t.string "ticker"
     t.string "name"
+    t.decimal "current_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,4 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_020543) do
     t.index ["stock_id"], name: "index_portfolio_api_trades_on_stock_id"
   end
 
+  add_foreign_key "portfolio_api_trades", "portfolio_api_portfolios", column: "portfolio_id"
+  add_foreign_key "portfolio_api_trades", "portfolio_api_stocks", column: "stock_id"
 end
