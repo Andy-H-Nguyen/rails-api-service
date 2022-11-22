@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 google:
+  id: 11
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
 

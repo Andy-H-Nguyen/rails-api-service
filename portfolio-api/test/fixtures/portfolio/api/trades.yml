@@ -5,8 +5,38 @@
 # below each fixture, per the syntax in the comments below
 #
 google: 
-  portfolio_id: 0
+  id: 33
+  portfolio_id: 11
+  stock_id: 22
   price: 12.24
   order_type: "buy"
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
+
+reliance_1: 
+  id: 111
+  portfolio_id: 11
+  stock_id: 333
+  price: 900
+  quantity: 100
+  order_type: "buy"
+  created_at: <%= "2015-10-04".to_date %>
+  updated_at: <%= "2015-10-04".to_date %>
+
+reliance_2: 
+  id: 222
+  portfolio_id: 11
+  stock_id: 333
+  price: 1000
+  order_type: "sell"
+  created_at: <%= "2015-10-05".to_date %>
+  updated_at: <%= "2015-10-05".to_date %>
+
+reliance_3: 
+  id: 333
+  portfolio_id: 11
+  stock_id: 333
+  price: 850
+  order_type: "buy"
+  created_at: <%= "2015-10-06".to_date %>
+  updated_at: <%= "2015-10-06".to_date %>

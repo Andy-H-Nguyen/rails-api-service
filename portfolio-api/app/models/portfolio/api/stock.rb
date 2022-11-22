@@ -1,5 +1,9 @@
 module Portfolio::Api
   class Stock < ApplicationRecord
-    belongs_to :trade, dependent: :destroy
+    validates :ticker, uniqueness: { 
+      message: "A ticker with that name already exists" 
+    }
+
+    has_many :trades, dependent: :destroy
   end
 end

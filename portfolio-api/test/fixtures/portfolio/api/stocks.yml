@@ -5,8 +5,22 @@
 # below each fixture, per the syntax in the comments below
 #
 google:
+  id: 22
   ticker: "ABC"
-  name: "Google"
+  name: "GOOGLE"
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
 
+reliance:
+  id: 333
+  ticker: "RELI"
+  name: "RELIANCE"
+  created_at: <%= Time.at(1).to_datetime %>
+  updated_at: <%= Time.at(1).to_datetime %>
+
+hdfcbank:
+  id: 444
+  ticker: "HDFC"
+  name: "HDFCBANK"
+  created_at: <%= Time.at(1).to_datetime %>
+  updated_at: <%= Time.at(1).to_datetime %>

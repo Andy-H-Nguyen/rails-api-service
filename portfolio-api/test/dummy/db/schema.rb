@@ -12,28 +12,27 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_21_020543) do
   create_table "portfolio_api_portfolios", force: :cascade do |t|
-    t.integer "portfolio_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["portfolio_id"], name: "index_portfolio_api_portfolios_on_portfolio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "portfolio_api_stocks", force: :cascade do |t|
     t.string "ticker"
     t.string "name"
-    t.integer "trade_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["trade_id"], name: "index_portfolio_api_stocks_on_trade_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "portfolio_api_trades", force: :cascade do |t|
     t.integer "portfolio_id"
+    t.integer "stock_id"
     t.decimal "price"
     t.integer "order_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_portfolio_api_trades_on_portfolio_id"
+    t.index ["stock_id"], name: "index_portfolio_api_trades_on_stock_id"
   end
 
 end
