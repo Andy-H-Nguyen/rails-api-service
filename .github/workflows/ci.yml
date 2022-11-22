@@ -44,6 +44,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: |
           cp config/database.ci.yml config/database.yml
+          cp portfolio-api/test/dummy/config/database.ci.yml portfolio-api/test/dummy/config/database.yml
           rake db:create db:migrate
       - name: Run tests
         env:
