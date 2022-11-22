@@ -11,6 +11,10 @@ Install the latest Rails 7.0.4, using ruby 3.0.0-p0 is highly recommended.
 
 `cd rails-api-service`
 
+`rake portfolio_api:install:migrations`
+
+`rails db:migrate`
+
 `rails s`
 
 Make any requests to `http://127.0.0.1:3000`

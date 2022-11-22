@@ -12,7 +12,9 @@ module Portfolio::Api
     end
 
     def index
-      render json: { success: true, data: trades.group_by { |trade| trade.stock.name } }
+      render json: { 
+        success: true, 
+        data: trades.group_by { |trade| trade.stock.name }}
     end
 
     private
@@ -22,7 +24,7 @@ module Portfolio::Api
 
     def portfolio
       # We are only using one portfolio in this iteration
-      @portfolio ||= Portfolio.first
+      @portfolio ||= Portfolio.first || Portfolio.create!()
     end
     
     def get_returns
