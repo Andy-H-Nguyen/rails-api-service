@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_115839) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_205957) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "portfolio_api_portfolios", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_115839) do
   end
 
   create_table "portfolio_api_trades", force: :cascade do |t|
-    t.integer "portfolio_id"
-    t.integer "stock_id"
+    t.bigint "portfolio_id"
+    t.bigint "stock_id"
     t.decimal "price"
     t.integer "order_type"
     t.integer "quantity"

@@ -20,6 +20,8 @@ Make any requests to `http://127.0.0.1:3000`
 
 Run tests using 
 
+`cd portfolio-api`
+
 `rails test`
 
 ### Assumptions

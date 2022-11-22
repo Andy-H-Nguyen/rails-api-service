@@ -1,4 +1,4 @@
-# This migration comes from portfolio_api (originally 20221121020511)
+# This migration comes from portfolio_api (originally 20221121020589)
 class CreatePortfolioApiTrades < ActiveRecord::Migration[7.0]
   def change
     create_table :portfolio_api_trades do |t|
