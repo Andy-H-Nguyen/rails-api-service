@@ -3,20 +3,33 @@ module Portfolio::Api
     protect_from_forgery with: :null_session
 
     def holdings
-      holdings = get_holdings()
+      begin
+        holdings = get_holdings()
 
-      render json: { success: true, data: holdings }
+        render json: { success: true, data: holdings }
+      rescue => e
+        render json: { success: false, data: { message: e } }
+      end
     end
 
     def returns
-      returns = get_returns()
-      render json: { success: true, data: returns }
+      begin
+        returns = get_returns()
+        render json: { success: true, data: returns }
+      rescue => e
+        render json: { success: false, data: { message: e } }
+      end
     end
 
     def index
-      render json: { 
-        success: true, 
-        data: trades.group_by { |trade| trade.stock.name }}
+      begin
+        render json: { 
+          success: true, 
+          data: trades.group_by { |trade| trade.stock.name }}
+      rescue => e
+        render json: { success: false, data: { message: e } }
+      end
+  
     end
 
     private
