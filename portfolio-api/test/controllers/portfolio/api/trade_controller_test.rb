@@ -38,6 +38,11 @@ module Portfolio::Api
 
       assert_nil(Trade.find_by(id: portfolio_api_trades(:google).id))
 
+      assert_equal(true, response.parsed_body["success"])
+      assert_equal(portfolio_api_stocks(:google).id, response.parsed_body["data"]["stock_id"])
+      assert_equal('12.24', response.parsed_body["data"]["price"])    
+      assert_equal('buy', response.parsed_body["data"]["order_type"])
+
       assert_response :success
     end
   end
