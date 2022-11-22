@@ -1,3 +1,7 @@
+# rails-api-service
+
+A generic api service, that can mount individual modular APIs. Including a portfolio tracking API which allows adding/deleting/updating trades and can do basic return calculations.
+
 Live demo [Here](https://rails-api-service.herokuapp.com/)
 
 Postman [Collection](https://www.getpostman.com/collections/f64c49e71e7c5b0eab96) 
@@ -153,7 +157,7 @@ Sample response
 Sample params
 
 ```
-{ trade: { stock_ticker: "ABC", price: 7.77, order_type: 'buy'} }
+{ trade: { stock_ticker: "ABC", price: 7.77, quantity: 100 order_type: 'buy'} }
 ```
 
 Sample response
@@ -167,7 +171,7 @@ Sample response
         "stock_id"=>22,
         "price"=>"7.77",
         "order_type"=>"buy",
-        "quantity"=>nil,
+        "quantity"=>"100",
         "created_at"=>"2022-11-22T15:00:42.078Z",
         "updated_at"=>"2022-11-22T15:00:42.078Z"}
     }
@@ -179,7 +183,7 @@ Sample response
 Sample params
 
 ```
-{ trade: { stock_ticker: "RELI", price: 7.89, order_type: 'sell'} }
+{ trade: { stock_ticker: "RELI", price: 7.89, quantity: 1, order_type: 'sell'} }
 ```
 
 Sample response
@@ -225,5 +229,6 @@ Sample response
 ### Tech Debt + Implementation wishlist
 - code quality tools like codecov, packwerk, rubocop
 - use GraphQL instead of REST, for QOL features like introspection queries, and stronger schemas
-- multiple portfolios
-- seeding database with real stocks
+- multiple portfolio support
+- seeding database with real stocks from an API provider
+- ci/cd
