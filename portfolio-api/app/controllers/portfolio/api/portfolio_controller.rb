@@ -1,18 +1,14 @@
 module Portfolio::Api
   class PortfolioController < ApplicationController
     def holdings
-      holdings = trades.group_by { |trade| trade.stock.name }
-      holdings.each do |stock_name, trades| 
-        data << stock_name
-        data << "\n"
-        data << average_of_all_buys(trades)
-      end
+      holdings = get_holdings()
 
-      render json: { success: true, data: data.string }
+      render json: { success: true, data: holdings }
     end
 
     def returns
-      render json: { success: true, data: nil }
+      returns = get_returns()
+      render json: { success: true, data: returns }
     end
 
     def index
@@ -25,10 +21,29 @@ module Portfolio::Api
     end
 
     def portfolio
+      # We are only using one portfolio in this iteration
       @portfolio ||= Portfolio.first
     end
+    
+    def get_returns
+      returns = trades.group_by { |trade| trade.stock.name }
+      returns.each do |stock_name, trades| 
+        returns[stock_name] = {culmulative_return: trades.first.stock.current_price / holding_value(trades)[:average_of_all_buys] }
+      end
 
-    def average_of_all_buys(trades)
+      returns
+    end
+
+    def get_holdings
+      holdings = trades.group_by { |trade| trade.stock.name }
+      holdings.each do |stock_name, trades| 
+        holdings[stock_name] = holding_value(trades)
+      end
+
+      holdings
+    end
+
+    def holding_value(trades)
       total_shares = 0
       total_purchase_price = 0
       trades.each do |trade|
@@ -37,7 +52,8 @@ module Portfolio::Api
       end
 
       average_of_all_buys = total_purchase_price/total_shares
-      return "\t #{total_shares} @ #{average_of_all_buys}\n"
+
+      { total_shares: total_shares, average_of_all_buys: average_of_all_buys}
     end
   end
 end

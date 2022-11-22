@@ -8,7 +8,7 @@ google:
   id: 22
   ticker: "ABC"
   name: "GOOGLE"
-  current_price: 1004
+  current_price: 48.96
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
 
@@ -16,7 +16,7 @@ reliance:
   id: 333
   ticker: "RELI"
   name: "RELIANCE"
-  current_price: 23
+  current_price: 437.5
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
 
@@ -24,6 +24,6 @@ hdfcbank:
   id: 444
   ticker: "HDFC"
   name: "HDFCBANK"
-  current_price: 101
+  current_price: 2000
   created_at: <%= Time.at(1).to_datetime %>
   updated_at: <%= Time.at(1).to_datetime %>
