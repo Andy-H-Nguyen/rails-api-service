@@ -4,13 +4,14 @@ module Portfolio::Api
 
     def create
       begin
-        permitted_params = params.require(:trade).permit(:stock_ticker, :price, :order_type)
+        permitted_params = params.require(:trade).permit(:stock_ticker, :price, :order_type, :quantity)
         portfolio = Portfolio.first # Multiple portfolios are out of scope 
         stock = Stock.find_by(ticker: permitted_params[:stock_ticker])
         trade = Trade.create!(
           portfolio_id: portfolio.id,
           stock_id: stock.id,
           price: permitted_params[:price],
+          quantity: permitted_params[:quantity],
           order_type: permitted_params[:order_type])
 
         render json: { success: true, data: trade }
@@ -21,7 +22,7 @@ module Portfolio::Api
 
     def update
       begin
-        permitted_params = params.require(:trade).permit(:stock_ticker, :price, :order_type)
+        permitted_params = params.require(:trade).permit(:stock_ticker, :price, :order_type, :quantity)
         stock = Stock.find_by(ticker: permitted_params[:stock_ticker])
         portfolio = Portfolio.first # Multiple portfolios are out of scope 
         id = params.permit(:id)[:id]
@@ -32,6 +33,7 @@ module Portfolio::Api
           portfolio_id: portfolio.id,
           stock_id: stock.id,
           price: permitted_params[:price],
+          quantity: permitted_params[:quantity],
           order_type: permitted_params[:order_type])
         
         render json: { success: true, data: trade }
