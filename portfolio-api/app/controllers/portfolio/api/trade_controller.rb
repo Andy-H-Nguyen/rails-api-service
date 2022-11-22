@@ -1,5 +1,7 @@
 module Portfolio::Api
   class TradeController < ApplicationController
+    protect_from_forgery with: :null_session
+
     def create
       permitted_params = params.require(:trade).permit(:stock_ticker, :price, :order_type)
       portfolio = Portfolio.first # Multiple portfolios are out of scope 

@@ -10,7 +10,9 @@ Install the latest Rails 7.0.4, using ruby 3.1-2 is highly recommended.
 
 `rake portfolio_api:install:migrations`
 
-`rails db:migrate`
+`rails db:create db:migrate`
+
+Preload the test dataset using `rake db:fixtures:load RAILS_ENV=development FIXTURES_PATH='portfolio-api/test/fixtures'`
 
 `rails s`
 

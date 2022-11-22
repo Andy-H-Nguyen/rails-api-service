@@ -1,5 +1,7 @@
 module Portfolio::Api
   class PortfolioController < ApplicationController
+    protect_from_forgery with: :null_session
+
     def holdings
       holdings = get_holdings()
 
