@@ -2,9 +2,11 @@
 
 A generic api service, that can mount individual modular APIs. Including a portfolio tracking API which allows adding/deleting/updating trades and can do basic return calculations.
 
-Live demo [Here](https://rails-api-service.herokuapp.com/)
+![CI](https://github.com/Andy-H-Nguyen/rails-api-service/actions/workflows/ci.yml/badge.svg)
 
-Postman [Collection](https://www.getpostman.com/collections/f64c49e71e7c5b0eab96) 
+[Live demo here](https://rails-api-service.herokuapp.com/)
+
+[Postman collection](https://www.getpostman.com/collections/f64c49e71e7c5b0eab96) 
 
 ### Getting Started
 
