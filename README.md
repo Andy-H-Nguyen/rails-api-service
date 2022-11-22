@@ -1,5 +1,7 @@
 Live demo [Here](https://rails-api-service.herokuapp.com/)
 
+Postman [Collection](https://www.getpostman.com/collections/f64c49e71e7c5b0eab96) 
+
 ### Getting Started
 
 Install the latest Rails 7.0.4, using ruby 3.1-2 is highly recommended.
@@ -7,6 +9,8 @@ Install the latest Rails 7.0.4, using ruby 3.1-2 is highly recommended.
 `git clone https://github.com/Andy-H-Nguyen/rails-api-service.git`
 
 `cd rails-api-service`
+
+Copy migrations from the rails engine.
 
 `rake portfolio_api:install:migrations`
 
