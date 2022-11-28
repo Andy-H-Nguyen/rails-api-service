@@ -1,6 +1,33 @@
 # rails-api-service
 
-A generic api service, that can mount individual modular APIs. Including a portfolio tracking API which allows adding/deleting/updating trades and can do basic return calculations.
+## Portfolio API
+A portfolio tracking API which allows adding/deleting/updating trades and can do basic return calculations etc.
+For simplicity assume that there will be only one portfolio and one user.
+The portfolio is essentially a collection of stocks, each stock having multiple trades (buy/sell). Each trade can have only one stock, a quantity and a date.
+
+### Example portfolio:
+RELIANCE:
+BUY 100@900 10/04/2015
+SELL 50@1000 10/05/2015 BUY 100@850 10/06/2015
+HDFCBANK:
+BUY 200@1000 11/05/2015
+SELL 100 @800 12/07/2015
+Holdings:
+RELIANCE: 150 @ 875.5 (Avg of all buys) HDFCBANK: 100 @ 1000
+
+### API
+### Models
+- Stock - just an alphanumeric id. Just pick any random strings for now, you do not need to
+create the whole stock collection. Use yahoo/google finance if you’re feeling
+adventurous
+- Trade - Should capture a date, price, type (buy/sell)
+- Portfolio - an aggregation over stocks and trades
+Functionality
+- Retrieve the portfolio
+- Add/delete/modify trades
+- Get the average buying price, cumulative return
+Calculate the average buying price as the average of all buys disregarding sells.
+The cumulative return requires the initial and current price. The initial price should be on the trade and you can get the current price using third party APIs like google or yahoo finance.
 
 ![CI](https://github.com/Andy-H-Nguyen/rails-api-service/actions/workflows/ci.yml/badge.svg)
 
@@ -41,8 +68,8 @@ Run tests using
 - The formula used for average of all buys is `average_of_all_buys = total_purchase_price/total_shares`. No sell orders were included. This means that we have `RELIANCE: 150 @ 875` instead of `RELIANCE: 150 @ 875.5`
 
 ### Design
-- To keep code modular, this app is an API host. Each individual API can be mounted as an rails engine. There is only one engine here `portfolio-api` we could add more in the future.
-- Internally we represent data using three models: portfolio, trade and stock.
+- To keep code modular, this app is an API host. Each individual API can be mounted as an rails engine. At the moment there is only one engine here `portfolio-api`. We could add more in the future.
+- Internally we represent data using three models: portfolio, trade and stock. No other models for holdings or returns are created.
 - For simplicity, I kept this as vanilla and in-the-box as possible using stock rails features.
 
 ### Tests

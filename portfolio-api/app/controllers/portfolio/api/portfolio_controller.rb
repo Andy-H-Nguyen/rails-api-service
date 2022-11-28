@@ -28,17 +28,16 @@ module Portfolio::Api
           data: trades.group_by { |trade| trade.stock.name }}
       rescue => e
         render json: { success: false, data: { message: e } }
-      end
-  
+      end  
     end
 
     private
     def trades
-      @trades ||= portfolio.trades
+      @trades ||= portfolio.trades # N+1
     end
 
     def portfolio
-      @portfolio ||= Portfolio.first || Portfolio.create!()
+      @portfolio ||= Portfolio.includes(:trades).first || Portfolio.new
     end
   end
 end
