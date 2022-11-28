@@ -6,14 +6,25 @@ For simplicity assume that there will be only one portfolio and one user.
 The portfolio is essentially a collection of stocks, each stock having multiple trades (buy/sell). Each trade can have only one stock, a quantity and a date.
 
 ### Example portfolio:
-RELIANCE:
+RELIANCE
+
 BUY 100@900 10/04/2015
-SELL 50@1000 10/05/2015 BUY 100@850 10/06/2015
+
+SELL 50@1000 10/05/2015 
+
+BUY 100@850 10/06/2015
+
 HDFCBANK:
+
 BUY 200@1000 11/05/2015
+
 SELL 100 @800 12/07/2015
+
 Holdings:
-RELIANCE: 150 @ 875.5 (Avg of all buys) HDFCBANK: 100 @ 1000
+
+RELIANCE: 150 @ 875.5 (Avg of all buys) 
+
+HDFCBANK: 100 @ 1000
 
 ### API
 ### Models
