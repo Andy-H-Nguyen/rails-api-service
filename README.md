@@ -28,8 +28,7 @@ HDFCBANK: 100 @ 1000
 
 ### API
 ### Models
-- Stock - just an alphanumeric id. Just pick any random strings for now, you do not need to
-create the whole stock collection. Use yahoo/google finance if you’re feeling
+- Stock - just an alphanumeric id.
 adventurous
 - Trade - Should capture a date, price, type (buy/sell)
 - Portfolio - an aggregation over stocks and trades
@@ -38,7 +37,6 @@ Functionality
 - Add/delete/modify trades
 - Get the average buying price, cumulative return
 Calculate the average buying price as the average of all buys disregarding sells.
-The cumulative return requires the initial and current price. The initial price should be on the trade and you can get the current price using third party APIs like google or yahoo finance.
 
 ![CI](https://github.com/Andy-H-Nguyen/rails-api-service/actions/workflows/ci.yml/badge.svg)
 
